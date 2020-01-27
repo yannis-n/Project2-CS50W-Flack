@@ -1,0 +1,59 @@
+body, html {
+  height: 100%;
+  overflow: hidden; }
+
+nav {
+  width: 20%;
+  height: 80%;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 2%;
+  position: relative;
+  overflow-y: auto; }
+
+.form-control {
+  margin-bottom: 5%; }
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
+  background-color: #3300aa !important;
+  border-color: #3300aa !important; }
+
+.create_channel {
+  display: inline-block; }
+
+.info {
+  width: 20%;
+  padding: 1%;
+  box-sizing: border-box; }
+
+.nav-link {
+  display: block; }
+
+.container-fluid {
+  width: 65%;
+  float: right;
+  position: relative;
+  height: 60%;
+  margin: 3%;
+  overflow-x: hidden;
+  overflow-y: auto; }
+
+.messages {
+  overflow-wrap: break-word;
+  height: 100%;
+  width: 100%; }
+
+.message {
+  margin: 2%; }
+
+.input_field {
+  position: absolute;
+  bottom: 1%;
+  right: 1%;
+  height: 20%; }
+
+/*# sourceMappingURL=css.map */

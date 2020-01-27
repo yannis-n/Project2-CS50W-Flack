@@ -1,0 +1,232 @@
+.error_message {
+  color: red;
+  display: none; }
+
+.info, .brand {
+  width: 20%;
+  padding: 1%;
+  box-sizing: border-box;
+  display: inline-block; }
+
+.container-fluid, .message-input {
+  width: 60%;
+  float: right;
+  position: relative;
+  margin-right: 3%;
+  overflow-x: hidden;
+  overflow-y: auto; }
+
+body, html {
+  height: 100%;
+  overflow: hidden;
+  background-color: #3300aa;
+  color: #ffffff;
+  font-family: "Trebuchet MS", Helvetica, sans-serif	!important; }
+
+.modal {
+  color: black; }
+
+.brand {
+  font-size: 20px; }
+
+.info {
+  float: right; }
+
+.brand {
+  float: left; }
+
+#close_nav {
+  display: none; }
+
+nav, .container-fluid, .message-input {
+  background-color: blueviolet;
+  border-radius: 1%; }
+
+nav {
+  width: 30%;
+  height: 90%;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 0;
+  margin-left: 3%;
+  position: relative;
+  overflow-y: auto;
+  float: left;
+  overflow-x: auto; }
+
+#create_channel1 {
+  margin-bottom: 3%; }
+
+.nav-link {
+  text-decoration: none;
+  color: #ffffff;
+  padding: 4%;
+  display: block; }
+
+.tabs {
+  display: inline;
+  width: 100%;
+  height: auto;
+  margin: 0; }
+
+.tabs .tab {
+  display: inline;
+  float: left;
+  width: 50%; }
+
+.nav-link:hover {
+  text-decoration: none;
+  background-color: #3300aa;
+  color: #ffffff; }
+
+.form-control {
+  margin-bottom: 5%; }
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
+  background-color: #3300aa !important;
+  border-color: #3300aa !important; }
+
+.create_channel {
+  display: inline-block; }
+
+.container-fluid {
+  height: 65%; }
+
+.Channel_info {
+  font-weight: bold;
+  position: fixed;
+  top: 3.5%;
+  width: 100%;
+  z-index: 100; }
+
+.message-input {
+  margin-top: 3%;
+  box-sizing: border-box; }
+
+.messages {
+  overflow-wrap: break-word;
+  width: 100%; }
+
+.message, .announcement {
+  margin: 2%; }
+
+.message {
+  display: inline-block;
+  width: 96%;
+  background-color: #3300aa;
+  padding: 2%;
+  border-radius: 10px; }
+
+.delete_message {
+  float: right;
+  display: none; }
+
+#message_content {
+  margin-bottom: 0%;
+  background-color: blueviolet;
+  border-color: blueviolet;
+  color: #ffffff; }
+
+.form-group {
+  margin-bottom: 0; }
+
+#submit_message {
+  float: right;
+  background-color: blueviolet !important;
+  border-color: blueviolet !important;
+  margin: 1% 3%; }
+
+#menu {
+  display: none; }
+
+.btn.outline {
+  background: none;
+  padding: 12px 22px; }
+
+.btn-primary.outline {
+  border: 2px solid #0099cc;
+  color: #0099cc; }
+
+.btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
+  color: #33a6cc;
+  border-color: #33a6cc; }
+
+.btn-primary.outline:active, .btn-primary.outline.active {
+  border-color: #007299;
+  color: #007299;
+  box-shadow: none; }
+
+@media (max-width: 600px) {
+  #navigation_bar {
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    margin-left: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s; }
+
+  #close_nav {
+    display: block;
+    float: right;
+    background-color: blueviolet !important;
+    border-color: blueviolet !important; }
+
+  .Channel_info {
+    display: none;
+    position: sticky;
+    background-color: blueviolet;
+    top: 0;
+    padding: 2%;
+    height: 15%; }
+
+  .container-fluid, .message-input {
+    width: 0;
+    height: 60%;
+    float: none;
+    position: relative;
+    margin-right: 0;
+    overflow-x: hidden;
+    overflow-y: auto; }
+
+  .message-input {
+    height: 20%; }
+
+  .tabs {
+    position: sticky;
+    top: 6.5%; }
+
+  .sticky {
+    background-color: blueviolet;
+    height: 6.6%;
+    position: sticky;
+    top: 0; }
+
+  .menu-icon {
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0; }
+
+  .menu {
+    float: left;
+    background-color: blueviolet;
+    position: sticky;
+    top: 0;
+    left: 0;
+    padding: 0 5% 0 0; }
+
+  #menu {
+    display: block; } }
+@media (min-width: 600px) {
+  #navigation_bar {
+    width: 30% !important; }
+
+  .container-fluid, .message-input {
+    width: 60% !important; } }
+
+/*# sourceMappingURL=style.css.map */
