@@ -2,12 +2,18 @@
 
 Web Programming with Python and JavaScript
 
-This is my implementation of Flack for CS50W where I designed my own chatting app. The web app contains the following features:
-1. A modal that appears if it is your first time entering the site and prompts you for a username that once submitted appear across all users in the Users tab.
-2. On the right, there is another tab named Channels where you can navigate through all the created channel or create new ones.
-3. Once you've chosen the channel you wish to enter, you can exchange messages with other user on the right in via socket.IO.
+This is my implementation of Flack for CS50W where I designed my own chatting app. The objectives of this project are the following:
+1. Learn to use JavaScript to run code server-side.
+2. Become more comfortable with building web user interfaces.
+3. Gain experience with Socket.IO to communicate between clients and servers.
 
-My own personal touch were the following:
+
+The web app contains the following features:
+1. A modal that appears if it is your first time entering the site and prompts you for a username that once submitted appear across all users in the Users tab.
+2. On the right, there is another tab named Channels where you can navigate through all the created channels or create new ones.
+3. Once you've chosen the channel you wish to enter, you can exchange messages and view up to 100 messages via socket.IO.
+
+Apart from the required tasks for the project, my own personal touch were the following:
 1. The Users tab where you can see who else is connected on the site.
 2. The ability to delete one's own messages if they wish to do so.
 3. The implementation of a different layout should the user connects via a mobile phone.
