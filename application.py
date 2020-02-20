@@ -10,18 +10,22 @@ app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 socketio = SocketIO(app)
 
+# a list of all the existing chat channels
 channels = ["General"]
-# channel_messages = [{"channel_name":"General", "message":"Write something to begin a conversation!", "messenger":"Flack", "timestamp":""},{"channel_name":"Not General", "message":"It works!", "messenger":"Flask", "timestamp":""}]
+
+# a dict of all the messages separated by channel
 messages_ch = {"General" : [{"id":0, "message":"Write something to begin a conversation!", "messenger":"Flack", "timestamp":""}]}
-# messages = list()
+
 counter = dict()
 users = list()
 
+# index page where a user can view the existing channels and users
 @app.route("/", methods=["GET"])
 def index():
 
     return render_template("index.html", channels=channels, users=users)
 
+# checking if username exists
 @app.route("/check", methods=["POST"])
 def check_username():
     username_input = request.form.get("username_input")
@@ -29,6 +33,7 @@ def check_username():
         return jsonify({"taken": False})
     return jsonify({"taken": True})
 
+# checking if channel name exists
 @app.route("/check_channel_name", methods=["POST"])
 def check_channel_name():
     channel_name = request.form.get("channel_name")
@@ -41,44 +46,26 @@ def add_user(data):
     users.append(data["username"])
     emit("user_list", {'user':data["username"]},broadcast=True)
 
-
-
 @socketio.on("create_channel")
 def create_channel(data):
     new_channel = data["channel_name"]
     channels.append(new_channel)
     emit("channelsList", {'new_channel':new_channel}, broadcast=True)
 
+# returns a JSON object with the messages of a Channel
 @app.route("/<channel>", methods=["POST","GET"])
 def channel(channel):
 
-    if request.method == "POST":
-            # messages = load_messages(channel)
+    if request.method == "POST":            
         if channel in messages_ch:
             return jsonify(messages_ch[channel])
         return jsonify([{"id": "none", "message":"Begin a Conversation!", "messenger":"Flack", "timestamp":""}])
     else:
         return redirect("/")
 
-
+  
 @socketio.on("submit_message")
-def submit_message(data):
-    # channel_messages.append(data)
-    # if data["channel_name"] in counter:
-    #     counter[data["channel_name"]] += 1
-    # else:
-    #     counter[data["channel_name"]] = 0
-    # if counter[data["channel_name"]] >= 101:
-    #     for message in channel_messages:
-    #         if message["channel_name"] ==  data["channel_name"]:
-    #             del message
-    #             break
-    #
-    # if messages:
-    #     messages.clear()
-    # for message in channel_messages:
-    #     if (data["channel_name"]==message["channel_name"]):
-    #         messages.append(message)
+def submit_message(data):   
     if data["channel_name"] in messages_ch:
         message_info = {"id":messages_ch[data["channel_name"]][len(messages_ch[data["channel_name"]])-1]["id"] + 1,"message":data["message"], "messenger":data["messenger"], "timestamp":data["timestamp"]}
     else:
@@ -101,7 +88,6 @@ def on_join(data):
     join_room(room)
     emit("joined", {'username': username}, room=room)
 
-
 @socketio.on('leave')
 def on_leave(data):
     username = data['username']
@@ -118,8 +104,6 @@ def delete_message(data):
     room=data["channel_name"]
     print(2)
     emit("deleted_message", {'id':data["id"]}, room=room)
-
-
 
 def load_messages(channel_name):
     if messages:
