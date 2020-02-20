@@ -98,17 +98,10 @@
 
 
 
-
-
-
 document.addEventListener('DOMContentLoaded', function(){
 
-
-
-
-
 	socket.on("connect",function(){
-
+// 			load the last page visited if user has already registered or lead to the general chatroom
 			if (!localStorage.getItem('channel')){
 				load_page("General");
 			}else{
@@ -117,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function(){
 			history.pushState({'title':localStorage.getItem('channel'),}, localStorage.getItem('channel'), localStorage.getItem('channel'));
 
 
-
+// 			for mobile interface
 			document.getElementById('close_nav').onclick = function(){
 
 				document.getElementById('navigation_bar').style.width = 0;
@@ -134,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function(){
 				document.querySelector('.message-input').style.width = 0;
 
 			}
-
+// 		user registering and username submition to all user vvia socketIO
 		if (!localStorage.getItem('username')){
 			var authenticated_user = false;
 	    $('#modal_user').modal('show');
@@ -189,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		document.querySelector('#users').style.display='none';
 
 		active_tabs();
-
+// 		channel creation
 		document.getElementById("channel_name").onclick = function(){
 			document.getElementById('channel_name').value = " ";
 			document.getElementById('channel_name').style.color = "black";
@@ -245,7 +238,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 		document.getElementById("submit_message").onclick = function(){
-
+// 		submit message
 	    const message = document.getElementById("message_content").value;
 	    var currentdate = new Date();
 	    var datetime = "Last Sync: " + currentdate.getDate() + "/"
