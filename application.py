@@ -1,6 +1,6 @@
 import os
 import requests
-
+import gevent
 from flask import Flask,render_template, redirect, request, url_for, jsonify, request
 from flask_socketio import SocketIO, emit, join_room, leave_room, send
 
@@ -56,16 +56,16 @@ def create_channel(data):
 @app.route("/<channel>", methods=["POST","GET"])
 def channel(channel):
 
-    if request.method == "POST":            
+    if request.method == "POST":
         if channel in messages_ch:
             return jsonify(messages_ch[channel])
         return jsonify([{"id": "none", "message":"Begin a Conversation!", "messenger":"Flack", "timestamp":""}])
     else:
         return redirect("/")
 
-  
+
 @socketio.on("submit_message")
-def submit_message(data):   
+def submit_message(data):
     if data["channel_name"] in messages_ch:
         message_info = {"id":messages_ch[data["channel_name"]][len(messages_ch[data["channel_name"]])-1]["id"] + 1,"message":data["message"], "messenger":data["messenger"], "timestamp":data["timestamp"]}
     else:
