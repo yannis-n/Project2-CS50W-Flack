@@ -72,7 +72,7 @@ nav {
 .tabs .tab {
   display: inline;
   float: left;
-  width: 50%; }
+  width: 100%; }
 
 .nav-link:hover {
   text-decoration: none;
