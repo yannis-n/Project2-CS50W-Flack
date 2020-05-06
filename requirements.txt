@@ -78,7 +78,6 @@ python-dateutil==2.8.1
 python-engineio==3.11.1
 python-socketio==4.4.0
 pytz==2019.3
-pywin32==227
 pywinpty==0.5.7
 pyzmq==19.0.0
 qtconsole==4.7.3
